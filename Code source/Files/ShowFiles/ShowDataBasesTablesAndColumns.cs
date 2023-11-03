@@ -126,6 +126,7 @@ namespace DATABASE_useing_CSharp.P
             Console.WriteLine("Server id " + DataServer.ID);
             Console.WriteLine("Server make in date " + DataServer.Date);
             Console.WriteLine("Server Content");
+
             foreach (var item in DataServer.ServerContents)
                 Console.WriteLine(item);
         }

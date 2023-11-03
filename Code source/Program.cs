@@ -22,10 +22,17 @@ namespace DATABASE_useing_CSharp
             var path = $@"{DirInfo.DirectoryFilesToSaver}\Server";
             filePaht = $@"{DirInfo.DirectoryFilesToSaver}\Server\ServerCfg1.sql";
 
-            AServers.CheckDir(filePaht,path);
-
+            //Check if a dir is exists 
             if (Directory.Exists(path))
+            {
                  DirInfo.CounterFiles(path);
+            }
+            else
+            {
+                Directory.CreateDirectory(path);
+            }
+
+            AServers.CheckDir(filePaht,path);
 
             var Connet = DirInfo.DirList;
 
@@ -42,7 +49,6 @@ namespace DATABASE_useing_CSharp
                     break;
             }
         }
-
         private static void addNewFile(int a, FileInfo[] Connets,string TOsave)
         {
             filePaht = $@"{TOsave}\ServerCfg{a}.sql";
@@ -53,7 +59,7 @@ namespace DATABASE_useing_CSharp
             }
         }
         /// <summary>
-        /// Make File & Set name 
+        /// Make File & Set name
         /// </summary>
         private static void MakeServerFile(string path)
         {
@@ -67,9 +73,10 @@ namespace DATABASE_useing_CSharp
 
             if (File.Exists(filePaht))
                 return;
+
         }
         /// <summary>
-        /// Make Server and Check other servers files 
+        /// Make Server and Check other servers files
         /// </summary>
         /// <param name="path"></param>
         /// <param name="Connet"></param>
