@@ -39,15 +39,16 @@ namespace DATABASE_useing_CSharp
             if (Connet is null)
                 MakeServerFile(path);
 
-            switch (Connet.Length)
-            {
-                case 0:
-                    MakeServerFile(path);
-                    break;
-                default:
-                    MakeServerIfExists(path,Connet);
-                    break;
-            }
+            if(Connet != null)
+                switch (Connet.Length)
+                {
+                    case 0:
+                        MakeServerFile(path);
+                        break;
+                    default:
+                        MakeServerIfExists(path,Connet);
+                        break;
+                }
         }
         private static void addNewFile(int a, FileInfo[] Connets,string TOsave)
         {
