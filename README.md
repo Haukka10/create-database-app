@@ -1,1 +1,1 @@
-This app help you with make SQL files for your database
+This app help you with making SQL files for your database
