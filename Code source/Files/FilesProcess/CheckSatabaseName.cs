@@ -1,8 +1,5 @@
-﻿using DATABASE_useing_CSharp.CheckValues;
-using System.IO;
-using System;
-using CounterFiles;
-using System.Collections.Generic;
+﻿using CounterFiles;
+using DATABASE_useing_CSharp.CheckValues;
 
 namespace DATABASE_useing_CSharp.P
 {
@@ -27,15 +24,25 @@ namespace DATABASE_useing_CSharp.P
                 try
                 {
                     ErrorsFiles.ErrorNamesFiles = HDIRinfo.DirList.GetValue(ErrorsFiles.CurrentFiles).ToString();
-                    ErrorsFiles.ErrorsFilesPath = $@"{HDIRinfo.DirectoryFilesToSaver}\Server\{ErrorsFiles.ErrorNamesFiles}";
+
+                    if (ErrorsFiles.ErrorNamesFiles is not null)
+                    {
+
+                        ErrorsFiles.ErrorsFilesPath = ErrorsFiles.ErrorNamesFiles;
+
+                    }else
+                    {
+                        Console.WriteLine("Error ErrorsFiles.ErrorNamesFiles is null");
+                        return;
+                    }
                     var FRAL = File.ReadAllLines(ErrorsFiles.ErrorsFilesPath);
                     var Names = FRAL[1]; // get 2 index from files
 
                     string FullName = Names.Remove(0, 3); // remove first 3 letter 
-                    var FixName = FullName.Remove(FullName.Length -1 ,1); // remove last 1 letter
+                    var FixName = FullName.Remove(FullName.Length - 1, 1); // remove last 1 letter
                     NamesBD.Add(ErrorsFiles.ErrorsFilesPath); // set to list path files 
-                    
-                    if(NamesBD.Count > 0)
+
+                    if (NamesBD.Count > 0)
                     {
                         NamesShow(FixName);
                     }

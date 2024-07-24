@@ -39,9 +39,6 @@ namespace DATABASE_useing_CSharp
             if (Connet is null)
                 MakeServerFile(path);
 
-            if (Connet != null)
-                return;
-
             switch (Connet.Length)
             {
                 case 0:
