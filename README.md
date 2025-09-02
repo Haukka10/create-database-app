@@ -39,6 +39,8 @@ After downloading a app form the release find a app name "Create database app C+
 10. After all of that you can add other table or not.
 ## Where is files?
 Files is on your on the drive that has the most space in folder 'Server/'
+
+## How to run and build
 How to Run : Go to and open Release.zip => go to Release\net8.0 => open file with .exe
 
 How to build : Got to and extract zip "Code Source with sln.zip" go to => \create-database-app => Open file with .sln and in vs click build button 
